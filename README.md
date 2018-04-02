@@ -37,6 +37,7 @@ For Mac users you can install Racket using Homebrew
 `brew install racket`
 
 ## Functions explained
+##### CONS
 `cons` - The cons function actually accepts any two values, not just a list for the second argument. When the second argument is not empty and not itself produced by cons, the result prints in a special way. The two values joined with cons are printed between parentheses, but with a dot e.g.
 
 ```racket
@@ -47,6 +48,7 @@ For Mac users you can install Racket using Homebrew
 '("banana" . "split")
 ```
 
+#### CAR
 `car` - Returns the first element of the pair.
 ```racket
 (car '(1 2))
@@ -56,6 +58,7 @@ For Mac users you can install Racket using Homebrew
 2
 ```
 
+#### CDR
 `cdr` - Returns the second element of the pair.
 ```racket
 > (cdr '(1 2))
@@ -65,6 +68,7 @@ For Mac users you can install Racket using Homebrew
 '()
 ```
 
+#### NULL
 `null` - The empty list.
 ```racket
 > null
@@ -77,6 +81,7 @@ For Mac users you can install Racket using Homebrew
 #t
 ```
 
+#### NULL?
 `null?` - Returns #t if v is the empty list, #f otherwise.
 ```racket
 > (null? 1)
@@ -92,6 +97,7 @@ For Mac users you can install Racket using Homebrew
 #t
 ```
 
+#### MAP
 `map` - Applies proc to the elements of the lsts from the first elements to the last. The proc argument must accept the same number of arguments as the number of supplied lsts, and all lsts must have the same number of elements. The result is a list containing each result of proc in order.
 ```racket
 > (map (lambda (number)
@@ -106,6 +112,7 @@ For Mac users you can install Racket using Homebrew
 '(11 102 1003 10004)
 ```
 
+#### IF
 `if` - (if test-expr then-expr else-expr) Evaluates test-expr. If it produces any value other than #f, then then-expr is evaluated, and its results are the result for the if form. Otherwise, else-expr is evaluated, and its results are the result for the if form. The then-expr and else-expr are in tail position with respect to the if form.
 ```racket
 > (if (positive? -5) (error "doesn't get here") 2)
@@ -118,6 +125,7 @@ For Mac users you can install Racket using Homebrew
 "yes"
 ```
 
+#### COND
 `cond` - (cond cond-clause ...) A cond-clause that starts with else must be the last cond-clause.
 
 If no cond-clauses are present, the result is #<void>.
@@ -146,6 +154,7 @@ Otherwise, the first test-expr is evaluated. If it produces #f, then the result 
 '(2 3)
 ```
 
+#### DEFINE
 `define` - (define id expr) The first form binds id to the result of expr, and the second form binds id to a procedure. 
 ```racket
 (define x 10)
@@ -170,6 +179,7 @@ Otherwise, the first test-expr is evaluated. If it produces #f, then the result 
 30
 ```
 
+#### LAMBDA
 `lambda` - (lambda kw-formals body ...+) Produces a procedure. The kw-formals determines the number of arguments and which keyword arguments that the procedure accepts.
 ```racket
 > ((lambda (x) x) 10)
@@ -186,6 +196,7 @@ Otherwise, the first test-expr is evaluated. If it produces #f, then the result 
          (f #:arg 2 1)))
 '((2 1) (2 1))
 ```
+
 ## Hamming weight
 The hamming weight is basically the number of non-zero symbols in a symbol sequence. It is the number of "1" bits in the binary sequence
 
