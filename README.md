@@ -36,6 +36,156 @@ For windows users, download DrRacket from the following website; http://racket-l
 For Mac users you can install Racket using Homebrew
 `brew install racket`
 
+## Functions explained
+`cons` - The cons function actually accepts any two values, not just a list for the second argument. When the second argument is not empty and not itself produced by cons, the result prints in a special way. The two values joined with cons are printed between parentheses, but with a dot e.g.
+
+```racket
+> (cons 1 2)
+'(1 . 2)
+
+> (cons "banana" "split")
+'("banana" . "split")
+```
+
+`car` - Returns the first element of the pair.
+```racket
+(car '(1 2))
+1
+
+> (car (cons 2 3))
+2
+```
+
+`cdr` - Returns the second element of the pair.
+```racket
+> (cdr '(1 2))
+'(2)
+
+> (cdr '(1))
+'()
+```
+
+`null` - The empty list.
+```racket
+> null
+'()
+
+> '()
+'()
+
+> (eq? '() null)
+#t
+```
+
+`null?` - Returns #t if v is the empty list, #f otherwise.
+```racket
+> (null? 1)
+#f
+
+> (null? '(1 2))
+#f
+
+> (null? '())
+#t
+
+> (null? (cdr (list 1)))
+#t
+```
+
+`map` - Applies proc to the elements of the lsts from the first elements to the last. The proc argument must accept the same number of arguments as the number of supplied lsts, and all lsts must have the same number of elements. The result is a list containing each result of proc in order.
+```racket
+> (map (lambda (number)
+         (+ 1 number))
+       '(1 2 3 4))
+'(2 3 4 5)
+
+> (map (lambda (number1 number2)
+         (+ number1 number2))
+       '(1 2 3 4)
+       '(10 100 1000 10000))
+'(11 102 1003 10004)
+```
+
+`if` - (if test-expr then-expr else-expr) Evaluates test-expr. If it produces any value other than #f, then then-expr is evaluated, and its results are the result for the if form. Otherwise, else-expr is evaluated, and its results are the result for the if form. The then-expr and else-expr are in tail position with respect to the if form.
+```racket
+> (if (positive? -5) (error "doesn't get here") 2)
+2
+
+> (if (positive? 5) 1 (error "doesn't get here"))
+1
+
+> (if 'we-have-no-bananas "yes" "no")
+"yes"
+```
+
+`cond` - (cond cond-clause ...) A cond-clause that starts with else must be the last cond-clause.
+
+If no cond-clauses are present, the result is #<void>.
+
+If only a [else then-body ...+] is present, then the then-bodys are evaluated. The results from all but the last then-body are ignored. The results of the last then-body, which is in tail position with respect to the cond form, are the results for the whole cond form.
+
+Otherwise, the first test-expr is evaluated. If it produces #f, then the result is the same as a cond form with the remaining cond-clauses, in tail position with respect to the original cond form.
+```racket
+> (cond)
+> (cond
+    [else 5])
+5
+
+> (cond
+   [(positive? -5) (error "doesn't get here")]
+   [(zero? -5) (error "doesn't get here, either")]
+   [(positive? 5) 'here])
+'here
+
+> (cond
+   [(member 2 '(1 2 3)) => (lambda (l) (map - l))])
+'(-2 -3)
+
+> (cond
+   [(member 2 '(1 2 3))])
+'(2 3)
+```
+
+`define` - (define id expr) The first form binds id to the result of expr, and the second form binds id to a procedure. 
+```racket
+(define x 10)
+ 
+> x
+10
+
+
+(define (f x)
+  (+ x 1))
+ 
+> (f 10)
+11
+
+(define ((f x) [y 20])
+  (+ x y))
+ 
+> ((f 10) 30)
+40
+
+> ((f 10))
+30
+```
+
+`lambda` - (lambda kw-formals body ...+) Produces a procedure. The kw-formals determines the number of arguments and which keyword arguments that the procedure accepts.
+```racket
+> ((lambda (x) x) 10)
+10
+
+> ((lambda (x y) (list y x)) 1 2)
+'(2 1)
+
+> ((lambda (x [y 5]) (list y x)) 1 2)
+'(2 1)
+
+> (let ([f (lambda (x #:arg y) (list y x))])
+   (list (f 1 #:arg 2)
+         (f #:arg 2 1)))
+'((2 1) (2 1))
+```
 ## Hamming weight
 The hamming weight is basically the number of non-zero symbols in a symbol sequence. It is the number of "1" bits in the binary sequence
 
