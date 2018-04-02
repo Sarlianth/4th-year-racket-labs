@@ -36,6 +36,12 @@ For windows users, download DrRacket from the following website; http://racket-l
 For Mac users you can install Racket using Homebrew
 `brew install racket`
 
+## Hamming weight
+The hamming weight is basically the number of non-zero symbols in a symbol sequence. It is the number of "1" bits in the binary sequence
+
+## Hamming distance
+The hamming distance between two strings of equal length is the number of positions at which the corresponding symbols are different. In other words, it measures the minimum number of sumstitutions required to change one string into the other.
+
 ## Problems
 Below are listed the problems that I will solve and seperate them into individual folders so they're easily accessible.
 
