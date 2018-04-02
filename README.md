@@ -3,9 +3,13 @@
 ## Introduction
 
 Student name: Adrian Sypos
+
 Student ID: G00309646
+
 Module name: Theory of Algorithms
+
 Lecturer: Dr. Ian McLoughlin
+
 
 This repository cointains my solutions for several tasks for the module called Theory of Algorithms thought by Dr. Ian McLoughlin 
 
