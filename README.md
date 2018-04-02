@@ -13,7 +13,7 @@ Lecturer: Dr. Ian McLoughlin
 
 This repository cointains my solutions for several tasks for the module called Theory of Algorithms thought by Dr. Ian McLoughlin 
 
-The purpose of these problems is to develop an understaning of Functional Programin and to learn how to effectively solve problems using only promitive functions. We are only allowed to use the following functions: `cons`, `car`, `cdr`, `define`, `lambda`, `if`, `null`, `null?`, `cond`, `map`, = and the basic numerical operations (+, -, *, /, modulo). 
+The purpose of these problems is to develop an understaning of Functional Programin and to learn how to effectively solve problems using only promitive functions. We are only allowed to use the following functions: `cons`, `car`, `cdr`, `define`, `lambda`, `if`, `null`, `null?`, `cond`, `map`, `=` and the basic numerical operations `(+, -, *, /, modulo)`. 
 
 ## What is Racket?
 Racket is a general purpose, multi-paradigsm programming language in the Lisp-Scheme family. One of its design goals is to serve as a platform for language creation, design and implementation. It's the wold's first ecosystem for developing and deploying new languages. 
