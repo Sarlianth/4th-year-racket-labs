@@ -17,15 +17,3 @@
 
 ; test if square function works
 (square 3)
-
-;define function lstq that will take 2 lists as parameters
-(define (lstq l m)
-  ;check if l list is empty or not
-  (if(null? l)
-     ;if l list is empty, return nothing 
-     0
-     ;else add the result of squaring the first element of each list
-     ;then make recursion call of lstq of cdr of both lists l and m (rest of the list)
-     (+ (square(- (car l) (car m))) (lstq (cdr l) (cdr m)))))
-
-(lstq (list 4.5 5.1 6.2 7.8) (list 1.1 -0.1 6.1 3.8))
