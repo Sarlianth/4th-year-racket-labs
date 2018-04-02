@@ -1,0 +1,22 @@
+#lang racket
+
+;Write a function chse in Racket that takes three lists x, y and z of equal length and
+;containing only 0’s and 1’s. It should return a list containing the elements of y in
+;the positions where x is 1 and the elements of z otherwise.
+
+;possible improvement to this solution could be to check if the three lists are of the same length
+
+(define (chse x y z)
+    ; if list x is null just do nothing, return empty list
+    (if (null? x)
+        '()
+        ; check if car of lists x and y are the same
+        (cond((= (car x) 1)
+             ; add y into the result list and call chse again with the cdr of the three lists
+             (cons (car y) (chse (cdr x) (cdr y) (cdr z))))
+             ; or if the values of x and y are not the same
+             ; add y into the new list and call chse again with the cdr of the three lists
+             (else (cons (car z) (chse (cdr x) (cdr y) (cdr z)))))))
+
+; test the chse function
+(chse (list 0 0 0 0 1 1 1 1) (list 0 0 1 1 0 0 1 1) (list 0 1 0 1 0 1 0 1))
