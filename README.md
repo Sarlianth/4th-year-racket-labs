@@ -168,3 +168,15 @@ result for all *i*. Then add all of those to get *d*. For example:
 ## References
 
 These are all the different sources that I have used to help me solve the problems;
+
+* https://stackoverflow.com/questions/3345626/finding-a-prime-number-in-scheme-using-natural-recursion
+* https://stackoverflow.com/questions/41079400/how-to-write-collatz-sequence-using-unfold-in-scheme-racket
+* http://juanibiapina.com/articles/2013-12-13-the-collatz-conjecture/
+* https://stackoverflow.com/questions/5006750/removing-last-element-of-a-listscheme
+* https://stackoverflow.com/questions/13046017/rotate-a-list-to-the-left-in-scheme-racket
+* https://stackoverflow.com/questions/29137103/creating-an-append-function-in-racket
+* https://stackoverflow.com/questions/17305086/scheme-write-a-function-that-returns-number-of-odd-numbers-in-a-list?rq=1
+* https://stackoverflow.com/questions/15019498/scheme-sum-of-list
+* https://stackoverflow.com/questions/33425967/scheme-counting-elements-in-the-list
+* https://stackoverflow.com/questions/13147582/scheme-adding-2-lists-by-index
+* https://stackoverflow.com/questions/33427777/comparing-two-lists-in-scheme
