@@ -1,0 +1,14 @@
+#lang racket
+
+;Write a function sublsum in Racket that takes a list (of integers) as input and returns
+;a list of sublists of it that sum to zero. For this problem, you can use the
+;combinations built-in function. Note the order of the sublists and their elements
+;doesn’t matter
+
+;Function that sums all elements of the list
+;I will use it in combination with another function to return sublists of lists that sum to zero
+(define (sum_list l)
+  (if (null? l) 0
+      (+ (car l) (sum_list (cdr l)))))
+
+(sum_list (list -5 3 2 1))
