@@ -1,20 +1,16 @@
 #lang Racket
-
-;function to take a list as input and remove the last element in the list
 (define (remove_last lst)
   (if(null? (cdr lst))
      null
      (cons (car lst) (remove_last (cdr lst)))))
 
-;function to take a list as input and return the last element of the list
 (define (last_element l)
     (cond
       [(null? (cdr l)) (car l)]
       [else (last_element (cdr l))]))
 
-; function to shift the list one place to the right
-; i am using two functions defined above, combine them together to shift the list to the right
 (define (rcycle liste)
   (cons (last_element liste) (remove_last liste)))
 
+  
 (rcycle (list 1 2 3 4 5))

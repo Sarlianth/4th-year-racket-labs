@@ -1,6 +1,10 @@
 #lang racket
 
-(define (prime? p)
+; Write, from scratch, a function in Racket that uses brute-force algorithm that
+; takes a single positive integer and return true if the number is a prime and false
+; otherwise. Call the function decide-prime
+
+(define (decide-prime? p)
   (define (non-divisible-by n d)
     (cond
      ((= d 1) #t)
@@ -11,4 +15,4 @@
       #f
       (non-divisible-by p (- p 1))))
 
-(prime? 5)
+(decide-prime? 5)
